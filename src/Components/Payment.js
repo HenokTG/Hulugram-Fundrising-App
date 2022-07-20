@@ -13,7 +13,6 @@ import { useGlobalContext } from "../context";
 export default function Payment() {
   const { cause, setReturnedUuid, showOTP, setShowOTP} = useGlobalContext();
 
-  // const [showOTP, setShowOTP] = useState(false);
   const [paymentList, setPaymentList] = useState([]);
   const [payValue, setPayValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");

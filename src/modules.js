@@ -209,46 +209,56 @@ export const continuePayment = (
 };
 
 //Confirm AMole OTP
-export const confirMOTP = (e, setShowOTP, returnedUuid, history) => {
-  e.preventDefault();
-  const postData = new FormData();
-  postData.append("otp", e.target.elements.otp.value);
-  console.log("OTP: ", ...postData);
+export const confirMOTP = (
+         e,
+         setShowOTP,
+         returnedUuid,
+         history,
+         setConfirmAmole
+       ) => {
+        setConfirmAmole(true);
+         e.preventDefault();
+         const postData = new FormData();
+         postData.append("otp", e.target.elements.otp.value);
+         console.log("OTP: ", ...postData);
 
-  console.log(window.location);
-  const amoleCOnfirm = window.location.pathname + "thanks-for-your-donation";
-  const OTPInput = document.getElementById("amole-OTP-id");
+         console.log(window.location);
+         const amoleCOnfirm =
+           window.location.pathname + "thanks-for-your-donation";
+         const OTPInput = document.getElementById("amole-OTP-id");
 
-  axios
-    .post(
-      `https://dev.huluchat.com/hulupay/amole/requests/${returnedUuid}/finalize/`,
-      postData
-    )
-    .then((res) => {
-      console.log(res.data);
-      closeModal("payModal");
-      OTPInput.value = "";
-      setShowOTP(false);
-      history(amoleCOnfirm);
-    })
-    .catch(function(error) {
-      console.log(error);
-      Store.addNotification({
-        title: "Amole Payment Declined!",
-        message: error.response.data,
-        type: "danger",
-        insert: "top",
-        container: "top-center",
-        animationIn: ["animate__animated", "animate__fadeIn"],
-        animationOut: ["animate__animated", "animate__fadeOut"],
-        dismiss: {
-          duration: 5000,
-          onScreen: true,
-        },
-      });
-      // history(amoleCOnfirm);
-    });
-};
+         axios
+           .post(
+             `https://dev.huluchat.com/hulupay/amole/requests/${returnedUuid}/finalize/`,
+             postData
+           )
+           .then((res) => {
+             console.log(res.data);
+             closeModal("payModal");
+             OTPInput.value = "";
+             setConfirmAmole(false);
+             setShowOTP(false);
+             history(amoleCOnfirm);
+           })
+           .catch(function(error) {
+             console.log(error);
+             Store.addNotification({
+               title: "Amole Payment Declined!",
+               message: error.response.data,
+               type: "danger",
+               insert: "top",
+               container: "top-center",
+               animationIn: ["animate__animated", "animate__fadeIn"],
+               animationOut: ["animate__animated", "animate__fadeOut"],
+               dismiss: {
+                 duration: 5000,
+                 onScreen: true,
+               },
+             });
+             setConfirmAmole(false);
+             // history(amoleCOnfirm);
+           });
+       };
 
 // const handlePayChange = (event) => {
 //   const limit = 6;

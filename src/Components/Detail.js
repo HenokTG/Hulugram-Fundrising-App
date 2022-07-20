@@ -16,6 +16,7 @@ export default function Detail() {
     category_text,
   } = cause;
 
+  console.log("Created on: ", updated_at)
   const createdAt = new Intl.DateTimeFormat("en-US", {
     year: "numeric",
     month: "long",

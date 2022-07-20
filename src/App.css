@@ -595,8 +595,12 @@ progress[value]::-webkit-progress-value {
   font-weight: 700;
   text-align: center;
   letter-spacing: 1rem;
-  padding-left: 1.25rem;
+  padding-left: 10%;
 }
+
+/* #amole-OTP-id::placeholder {
+  font: 1rem sans-serif;
+} */
 
 #amole-OTP-id:focus {
   border: 2px solid rgb(244, 139, 27);

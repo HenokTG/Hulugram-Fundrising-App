@@ -22,10 +22,9 @@ export default function Info() {
       ? (total_amount / 1700) * 100
       : (total_amount / target_amount) * 100;
 
-  const topDonations = funds
+  const topDonations = [...funds]
     .sort((a, b) => (Number(a.amount) < Number(b.amount) ? 1 : -1))
     .slice(0, 5);
-  console.log("TOP: ", topDonations);
 
   return (
     <aside

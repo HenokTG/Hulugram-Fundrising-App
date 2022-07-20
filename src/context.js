@@ -9,7 +9,7 @@ const uuid = window.location.pathname
   .filter((elem) => elem !== "")[0];
 //"706699c0-0d8e-41bb-bdbe-a041833b1af7";
 console.log(
-  "first url: ",
+  "Cause uuid: ",
   window.location.pathname.split("/").filter((elem) => elem !== "")[0]
 );
 
@@ -32,7 +32,9 @@ export default function AppProvider({ children }) {
 
   const [isWindow960, setIsWindow960] = useState(window.innerWidth);
   const [showText, setShowText] = useState(window.innerWidth);
-  const [showOTP, setShowOTP] = useState(false);
+  const [showOTP, setShowOTP] = useState(true);
+  const [confirmPay, setConfirmPay] = useState(false);
+  const [confirmAmole, setConfirmAmole] = useState(false);
 
   useEffect(() => {
     function handleResize() {
@@ -89,6 +91,10 @@ export default function AppProvider({ children }) {
         setShowText,
         showOTP,
         setShowOTP,
+        confirmPay,
+        setConfirmPay,
+        confirmAmole,
+        setConfirmAmole,
       }}
     >
       {children}
