@@ -18,11 +18,7 @@ const webLink =
 
 function App() {
   useEffect(() => {
-    console.log(teleObj);
     teleObj.ready();
-    // teleObj.MainButton.text("Main Button");
-    teleObj.MainButton.show();
-    // teleObj.openLink(webLink);
   }, []);
 
   return (
