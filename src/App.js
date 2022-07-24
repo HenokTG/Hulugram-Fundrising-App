@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { ReactNotifications } from "react-notifications-component";
 
 import "./App.css";
@@ -12,7 +12,13 @@ import Navbar from "./Components/Navbar";
 import HomePage from "./pages/Home";
 import ThanksPage from "./pages/Thanks";
 
+const teleObj = window.Telegram.WebApp;
+
 function App() {
+  useEffect(() => {
+    teleObj.ready();
+  }, [])
+  
   return (
     <div className={`App`}>
       <Router>
