@@ -13,8 +13,6 @@ import HomePage from "./pages/Home";
 import ThanksPage from "./pages/Thanks";
 
 const teleObj = window.Telegram.WebApp;
-const webLink =
-  "https://hulugram-fund.herokuapp.com/706699c0-0d8e-41bb-bdbe-a041833b1af7/donate";
 
 function App() {
   useEffect(() => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 import ButtonsContainer from "./Buttons";
-import organizer from "../image/organizer.jpg"
+import organizer from "../image/organizer.jpg";
 
 import { handleScroll } from "../modules";
 import { useGlobalContext } from "../context";
@@ -16,12 +16,14 @@ export default function Detail() {
     category_text,
   } = cause;
 
-  console.log("Created on: ", updated_at)
-  const createdAt = new Intl.DateTimeFormat("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "2-digit",
-  }).format(new Date(updated_at));
+  console.log("Created on: ", updated_at);
+  const createdAt =
+    updated_at &&
+    new Intl.DateTimeFormat("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "2-digit",
+    }).format(new Date(updated_at));
 
   const causeDetailSection = useRef(null);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -29,7 +31,7 @@ export default function Detail() {
     display: isScrolling ? "flex" : "none",
     position: isScrolling ? "fixed" : "relative",
   };
-  
+
   useEffect(() => {
     window.addEventListener("scroll", () =>
       handleScroll(causeDetailSection, isScrolling, setIsScrolling)

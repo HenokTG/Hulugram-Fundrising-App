@@ -32,7 +32,7 @@ export default function AppProvider({ children }) {
 
   const [isWindow960, setIsWindow960] = useState(window.innerWidth);
   const [showText, setShowText] = useState(window.innerWidth);
-  const [showOTP, setShowOTP] = useState(true);
+  const [showOTP, setShowOTP] = useState(false);
   const [confirmPay, setConfirmPay] = useState(false);
   const [confirmAmole, setConfirmAmole] = useState(false);
 
@@ -59,10 +59,9 @@ export default function AppProvider({ children }) {
       setTotalCount,
       setNext,
       setFunds,
-      setIsLoading,
       setIsLoadingFailed
     );
-    fetchCauseData(uuid, setCause, setIsLoadingFailed);
+    fetchCauseData(uuid, setCause, setIsLoading, setIsLoadingFailed);
   }, []);
 
   return (

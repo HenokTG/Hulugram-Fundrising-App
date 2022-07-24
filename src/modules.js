@@ -3,20 +3,6 @@ import { Store } from "react-notifications-component";
 import axios from "axios";
 import { axiosInstance } from "./axios";
 
-//Fetch Cause Data
-export const fetchCauseData = (uuid, setCause, setIsLoadingFailed) => {
-  axiosInstance
-    .get(`web/causes/${uuid}/detail/`)
-    .then((res) => {
-      setCause(res.data);
-    })
-    .catch(function(error) {
-      setIsLoadingFailed(true);
-      console.log(error.toJSON());
-      console.error("Caution: NO Cause Data is fetched to render!");
-    });
-};
-
 //Fetch Funds Data
 export const fetchFundsData = (
   url,
@@ -24,7 +10,6 @@ export const fetchFundsData = (
   setTotalCount,
   setNext,
   setFunds,
-  setIsLoading,
   setIsLoadingFailed
 ) => {
   axios
@@ -33,7 +18,7 @@ export const fetchFundsData = (
       setTotalCount(res.data.count);
       setNext(res.data.next);
       setFunds(funds.concat(res.data.results));
-      setIsLoading(false);
+      
     })
     .catch(function(error) {
       setIsLoadingFailed(true);
@@ -41,6 +26,26 @@ export const fetchFundsData = (
       console.error("Caution: NO Fund Data is fetched to render!");
     });
 };
+
+//Fetch Cause Data
+export const fetchCauseData = (
+         uuid,
+         setCause,
+         setIsLoading,
+         setIsLoadingFailed
+       ) => {
+         axiosInstance
+           .get(`web/causes/${uuid}/detail/`)
+           .then((res) => {
+             setCause(res.data);
+             setIsLoading(false);
+           })
+           .catch(function(error) {
+             setIsLoadingFailed(true);
+             console.log(error.toJSON());
+             console.error("Caution: NO Cause Data is fetched to render!");
+           });
+       };
 
 //onWindowClick Event
 window.onclick = function(event) {
