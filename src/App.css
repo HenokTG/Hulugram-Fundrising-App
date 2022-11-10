@@ -438,7 +438,7 @@ progress[value]::-webkit-progress-value {
 
 .payment-wrapper {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 7fr;
   gap: 1rem;
   align-items: center;
   margin: 1rem 0 0.75rem;
