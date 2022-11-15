@@ -41,7 +41,7 @@ export const fetchCauseData = (
              setIsLoading(false);
            })
            .catch(function(error) {
-            //  setIsLoadingFailed(true);
+             setIsLoadingFailed(true);
              console.log(error.toJSON());
              console.error("Caution: NO Cause Data is fetched to render!");
            });
