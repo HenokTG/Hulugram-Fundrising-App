@@ -21,7 +21,7 @@ export const fetchFundsData = (
       
     })
     .catch(function(error) {
-      setIsLoadingFailed(true);
+      // setIsLoadingFailed(true);
       console.log(error.toJSON());
       console.error("Caution: NO Fund Data is fetched to render!");
     });
@@ -41,7 +41,7 @@ export const fetchCauseData = (
              setIsLoading(false);
            })
            .catch(function(error) {
-             setIsLoadingFailed(true);
+            //  setIsLoadingFailed(true);
              console.log(error.toJSON());
              console.error("Caution: NO Cause Data is fetched to render!");
            });
@@ -261,26 +261,7 @@ export const confirMOTP = (
                },
              });
              setConfirmAmole(false);
-             // history(amoleCOnfirm);
            });
        };
 
-// const handlePayChange = (event) => {
-//   const limit = 6;
-//   setPayValue(event.target.value.slice(0, 6));
-// };
-// const handlePhoneChange = (event) => {
-//   let phoneNumber = event.target.value;
-//   console.log("phoneNumber: ", phoneNumber);
-//   let newPhoneNumber =
-//     phoneNumber.length === 3
-//       ? phoneNumber + " - "
-//       : phoneNumber.length === 8
-//       ? phoneNumber + " - "
-//       : phoneNumber.length === 13
-//       ? phoneNumber + " - "
-//       : phoneNumber;
 
-//   setPhoneValue(newPhoneNumber.slice(0, 18));
-//   // setPhoneValue(e.target.value.slice(0, 9));
-// };
